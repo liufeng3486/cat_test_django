@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+div#left{float:left;}
+</style>
+<body>
+<p>请输入待解码字符串</p>
+<form action="add/" method="get">
+<div id="left">
+    a:<textarea cols="30" rows="5" id="a" name="a">e682a8e8be93e585a5e79a84e697a7e5af86e7a081e99499e8afaf222c2264617461223a6e756c6c7d</textarea> 
+</div>
+<div id="left">
+    <p>result: <span id='result'></span></p>
+    <button type="button" id='sum'>提交</button>
+</div>
+<div id="left">
+    b:<textarea cols="30" rows="5" id="c" name="c">2</textarea>
+</div>    
+</form>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#sum").click(function(){
+        var a = $("#a").val();
+        var b = $("#c").val();
+
+        $.get("add/",{'a':a,'b':b}, function(ret){
+            $('#c').html(ret)
+        })
+      });
+    });
+</script>
+</body>
+</html>
+
